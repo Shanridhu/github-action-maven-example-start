@@ -3,8 +3,6 @@ name: Test and release
 on:
   workflow_dispatch:
   push:
-    paths-ignore:
-      - '**.md'
     branches:
       - "master"
 
