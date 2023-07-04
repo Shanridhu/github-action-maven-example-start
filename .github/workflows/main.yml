@@ -1,9 +1,12 @@
 name: Maven CI/CD
 
 on:
-  workflow_call:
+ push:
+    branches: [ master ]
+ pull_request:
+    branches: [ master ]
 env:
-  JAVA_VERSION: '17'                         # set this to the java version to use (e.g. '8', '11', '17')    
+  JAVA_VERSION: '11'                         # set this to the java version to use (e.g. '8', '11', '17')    
 
 jobs:
   build_and_test:
