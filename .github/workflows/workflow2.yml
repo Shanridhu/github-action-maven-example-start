@@ -6,6 +6,9 @@ name: Workflow2
 on:
   workflow_run:
     workflows: ["workflow1"]
+    types:
+      - completed
+
 env:
   JAVA_VERSION: '11'
   
