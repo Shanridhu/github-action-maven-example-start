@@ -4,7 +4,8 @@ name: Workflow2
 
 # Controls when the workflow will run
 on:
-  workflow_dispatch:
+ repository_dispatch:
+    types: [Workflow1]
 env:
   JAVA_VERSION: '11'
   
