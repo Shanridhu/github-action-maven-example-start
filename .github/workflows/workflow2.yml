@@ -2,7 +2,7 @@ name: caller workflow2 repo2
 # java application + workflow (continous integration - caller workflow1 repo1)
 
 on:
- workflow_dispatch:
+ repository_dispatch:
  
 jobs:
   runs-on: ubuntu-latest
