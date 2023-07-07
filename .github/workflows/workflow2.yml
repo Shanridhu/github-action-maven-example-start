@@ -15,4 +15,4 @@ jobs:
     
     
     secrets:
-      token: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}
+      Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}
