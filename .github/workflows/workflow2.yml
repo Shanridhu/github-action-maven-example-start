@@ -2,10 +2,14 @@ name: caller workflow2 repo2
 # java application + workflow (continous integration - caller workflow1 repo1)
 
 on:
- repository_dispatch:
+  workflow_dispatch:
  
 jobs:
-  runs-on: ubuntu-latest
-  uses: Shanridhu/github-actions-shared-workflow/.github/workflows/workflow1.yml@master
-    secrets:
-     PAT_TOKEN_GITHUB: ${{ secrets.PAT_TOKEN_GITHUB }}
+    caller_workflow:
+     runs-on: ubuntu-latest
+
+     steps: 
+      - name: 'Run Azure Functions Action'
+        run: Shanridhu/github-actions-shared-workflow/.github/workflows/workflow1.yml@master
+        env:  
+          PAT_TOKEN_GITHUB: ${{ secrets.PAT_TOKEN_GITHUB }}
