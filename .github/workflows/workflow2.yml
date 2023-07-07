@@ -1,14 +1,20 @@
-name: HelloWorld 
+name: Call a reusable workflow
+
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
-  checkout:
+  call-workflow:
+    uses: Shanridhu/github-actions-shared-workflow/.github/workflows/workflow1.yml@main
 
-    
-   runs-on: ubuntu-latest
-   steps:
-   - uses: actions/checkout@v3
-   - uses: Shanridhu/github-actions-shared-workflow/.github/workflows/workflow1.yml@master
-     env:
-      PAT_TOKEN_GITHUB: ${{ secrets.PAT_TOKEN_GITHUB }}
+  #call-workflow-passing-data:
+   # permissions:
+    #  contents: read
+     # pull-requests: write
+    #uses: Shanridhu/github-actions-shared-workflow/.github/workflows/workflow1.yml@main
+    with:
+      config-path: .github/labeler.yml
+    secrets:
+      token: ${{ secrets.PAT_TOKEN_GITHUB }}
