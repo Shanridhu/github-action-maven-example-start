@@ -13,7 +13,7 @@ jobs:
      # pull-requests: write
     #uses: Shanridhu/github-actions-shared-workflow/.github/workflows/workflow1.yml@main
     with:
-     JAVA_VERSION: '11'
+     java-version: '11'
     
     secrets:
       Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}
