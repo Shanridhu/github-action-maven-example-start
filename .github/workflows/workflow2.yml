@@ -1,15 +1,14 @@
-name: caller workflow2 repo2
-# java application + workflow (continous integration - caller workflow1 repo1)
-
+name: HelloWorld 
 on:
   workflow_dispatch:
- 
-jobs:
-    caller_workflow:
-     runs-on: ubuntu-latest
 
-     steps: 
-      - name: 'calling workflow1'
-        uses: Shanridhu/github-actions-shared-workflow/.github/workflows/workflow1.yml@master
-        env:  
-          PAT_TOKEN_GITHUB: ${{ secrets.PAT_TOKEN_GITHUB }}
+jobs:
+  checkout:
+
+    
+   runs-on: ubuntu-latest
+   steps:
+   - uses: actions/checkout@v3
+   - uses: Shanridhu/github-actions-shared-workflow/.github/workflows/workflow1.yml@master
+     env:
+      PAT_TOKEN_GITHUB: ${{ secrets.PAT_TOKEN_GITHUB }}
