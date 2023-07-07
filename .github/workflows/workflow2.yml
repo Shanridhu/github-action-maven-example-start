@@ -9,7 +9,7 @@ jobs:
      runs-on: ubuntu-latest
 
      steps: 
-      - name: 'Run Azure Functions Action'
-        run: Shanridhu/github-actions-shared-workflow/.github/workflows/workflow1.yml@master
+      - name: 'calling workflow1'
+        uses: Shanridhu/github-actions-shared-workflow/.github/workflows/workflow1.yml@master
         env:  
           PAT_TOKEN_GITHUB: ${{ secrets.PAT_TOKEN_GITHUB }}
