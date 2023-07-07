@@ -5,9 +5,9 @@ on:
     branches:
     - master
 
-env:
+#env:
 
- JAVA_VERSION: '11'   
+ #JAVA_VERSION: '11'   
 
 jobs:
   call-workflow:
