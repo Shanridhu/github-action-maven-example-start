@@ -15,4 +15,4 @@ jobs:
     with:
       config-path: .github/labeler.yml
     secrets:
-      token: ${{ secrets.PAT_TOKEN_GITHUB }}
+      token: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}
