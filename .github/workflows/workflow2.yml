@@ -15,8 +15,7 @@ jobs:
     #  contents: read
      # pull-requests: write
     #uses: Shanridhu/github-actions-shared-workflow/.github/workflows/workflow1.yml@main
-    with:
-       java-version: ${{ env.JAVA_VERSION }}
+
     
     secrets:
       Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}
