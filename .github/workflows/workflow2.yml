@@ -13,8 +13,6 @@ on:
 jobs:
   call-workflow:
     uses: Shanridhu/github-actions-shared-workflow/.github/workflows/workflow1.yml@main
-    with:
-      Workflow2_PAT_TOKEN_GITHUB: 8
   #call-workflow-passing-data:
    # permissions:
     #  contents: read
@@ -22,5 +20,5 @@ jobs:
     #uses: Shanridhu/github-actions-shared-workflow/.github/workflows/workflow1.yml@main
 
     
-    #secrets:
-     # Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}
+    secrets:
+      Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}
