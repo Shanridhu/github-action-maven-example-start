@@ -2,7 +2,7 @@ name: caller workflow
 
 on:
   workflow_dispatch:
-    inputs: [workflow1.yml, workflow2.yml]
+    inputs: [javaci.yml, databaseci.yml]
     types:
       - completed
 
