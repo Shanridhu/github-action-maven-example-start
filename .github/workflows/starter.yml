@@ -1,8 +1,8 @@
 name: caller workflow
 
 on:
-  workflow_run:
-    workflows: [workflow1.yml, workflow2.yml]
+  workflow_dispatch:
+    inputs: [workflow1.yml, workflow2.yml]
     types:
       - completed
 
