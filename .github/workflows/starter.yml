@@ -2,6 +2,9 @@ name: Call a reusable workflow
 
 on:
  workflow_dispatch:
+   inputs:
+     caller:
+       description: 'please give any one file to build javaci or database'
 
 jobs:
   call-workflow:
