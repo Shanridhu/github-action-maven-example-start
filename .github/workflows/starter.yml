@@ -2,6 +2,9 @@ name: Call a reusable workflow
 
 on:
  workflow_dispatch:
+    inputs:
+      trigger_reusable_workflow:
+        default: "javaci"
 
 
 jobs:
