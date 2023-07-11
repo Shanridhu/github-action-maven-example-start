@@ -15,7 +15,7 @@ jobs:
     trigger_javaci: 
        uses: Shanridhu/github-actions-shared-workflow/.github/workflows/javaci.yml@main
        with:
-        filename: "javaci"
+        filename: javaci
        
        secrets:
          Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}
