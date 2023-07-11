@@ -4,7 +4,7 @@ on:
  workflow_dispatch:
    inputs: 
      filename:
-        description: 'please give any one file name to trigger'
+        description: 'please give any one file name to trigger javaci or databaseci'
         type: string
         required: true
 
