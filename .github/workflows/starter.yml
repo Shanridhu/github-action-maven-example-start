@@ -1,11 +1,15 @@
-name: Call a reusable workflow
+name: caller workflow
 
 on:
  workflow_dispatch:
-    inputs:
-      trigger_reusable_workflow:
-        default: "javaci"
-
+   inputs: 
+     filename: 
+        description: 'javaci'
+        required: true
+    
+     filename2: 
+        description: 'databaseci'
+        required: true
 
 jobs:
 
