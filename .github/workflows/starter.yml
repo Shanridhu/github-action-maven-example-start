@@ -6,7 +6,7 @@ on:
      filename:
         description: 'please give any one file name to trigger javaci or databaseci'
         type: string
-        required: true
+        required: false
 
 
 
