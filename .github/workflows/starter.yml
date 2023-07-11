@@ -1,27 +1,17 @@
-name: caller workflow
+name: Call a reusable workflow
 
 on:
-  workflow_dispatch:
-    #inputs: [javaci.yml, databaseci.yml]
-    #types:
-     # - completed
+ workflow_dispatch:
+
 
 jobs:
-   
-   call-workflow:
-    runs-on: ubuntu-latest
-    
-    steps:
-     - name: trigger javaci 
+
+    trigger_javaci: 
        uses: Shanridhu/github-actions-shared-workflow/.github/workflows/javaci.yml@main
-       with: 
-         workflow_file: javaci.yml
-           
-         
-     - name: trigger databaseci 
+
+    trigger_databaseci: 
        uses: Shanridhu/github-actions-shared-workflow/.github/workflows/databaseci.yml@main
-       with: 
-        workflow_file: databaseci.yml
-         
-#      secrets:
- #         Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}
+
+
+defaults:
+      run: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}
