@@ -6,11 +6,11 @@ on:
      workflows: 
         description: 'please give any one file name to trigger javaci or databaseci'
         required: true
-        #default: 'javaci,databaseci'
+        default: 'javaci,databaseci'
      repository: 
         description: 'Repository to run workflows in'
         required: true             
-       # default: ${{github.repository}}
+        default: ${{github.repository}}
    
 jobs:
 
@@ -26,4 +26,4 @@ jobs:
            workflow: ${{ github.event.inputs.workflows }}
            repository: ${{ github.event.inputs.repository }}
         # secrets:
-           Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}           
+           #Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}           
