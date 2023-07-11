@@ -5,7 +5,7 @@ on:
    inputs: 
      filename: 
         description: 'please give any one file name to trigger'
-        
+       # value: $
         required: true
 
      # filename2: 
@@ -17,7 +17,7 @@ jobs:
     trigger_javaci: 
        uses: Shanridhu/github-actions-shared-workflow/.github/workflows/javaci.yml@main
        with:
-        filename: javaci.yml
+        filename: ${{inputs.javaci.yml}}
        
        secrets:
          Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}
@@ -25,7 +25,7 @@ jobs:
     trigger_databaseci: 
        uses: Shanridhu/github-actions-shared-workflow/.github/workflows/databaseci.yml@main
        with:
-        filename: databaseci.yml
+        filename: ${{inputs.databaseci.yml}}
 
        secrets:
          Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}
