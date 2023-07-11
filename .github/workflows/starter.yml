@@ -4,9 +4,9 @@ on:
  workflow_dispatch:
    inputs: 
      filename:
-        description: 'please give any one file name to trigger javaci or databaseci'
+        #description: 'please give any one file name to trigger javaci or databaseci'
         type: string
-        required: false
+        #required: false
 
 
 
@@ -15,7 +15,7 @@ jobs:
     trigger_javaci: 
        uses: Shanridhu/github-actions-shared-workflow/.github/workflows/javaci.yml@main
        with:
-         filename: ${{github.event.inputs.javaci}}
+         filename: javaci #${{github.event.inputs.javaci}}
        
        secrets:
          Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}
@@ -23,7 +23,7 @@ jobs:
     trigger_databaseci: 
        uses: Shanridhu/github-actions-shared-workflow/.github/workflows/databaseci.yml@main
        with:
-        filename: ${{github.event.inputs.databaseci}}
+        filename: databaseci #${{github.event.inputs.databaseci}}
 
        secrets:
          Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}
