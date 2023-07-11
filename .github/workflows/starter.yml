@@ -5,6 +5,7 @@ on:
    inputs: 
      filename:
         description: 'please give any one file name to trigger'
+        type: string
         required: true
 
 
