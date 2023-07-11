@@ -13,5 +13,5 @@ jobs:
        uses: Shanridhu/github-actions-shared-workflow/.github/workflows/databaseci.yml@main
 
 
-defaults:
-      run: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}
+       secrets:
+         Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}
