@@ -3,28 +3,27 @@ name: caller workflow
 on:
  workflow_dispatch:
    inputs: 
-     filename: 
-         default: javaci
-        #description: 'please give any one file name to trigger javaci or databaseci'
-        #type: string
-        #required: false
-
-
-
+     workflows: 
+        description: 'please give any one file name to trigger javaci or databaseci'
+        required: true
+        default: 'javaci,databaseci'
+     repository: 
+        description: 'please give any one file name to trigger javaci or databaseci'
+        required: true             
+        default: ${{github.repository}}
+   
 jobs:
 
-    trigger_javaci: 
-       uses: Shanridhu/github-actions-shared-workflow/.github/workflows/javaci.yml@main
-       with:
-         filename: ${{github.event.inputs.javaci}}
-       
-       secrets:
-         Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}
-
-    trigger_databaseci: 
-       uses: Shanridhu/github-actions-shared-workflow/.github/workflows/databaseci.yml@main
-       #with:
-        #filename: ${{github.event.inputs.databaseci}}
-
-       secrets:
-         Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}
+   build:
+     runs-on: ubuntu-latest
+     steps:
+       - name: Checkout Repository
+         uses: actions/checkout@v3
+       - name: Trigger Child Workflows
+         id: workflow_dispatch
+         uses: peter-evans/workflow-dispatch@v3
+         with:
+           workflow: ${{ github.event.inputs.workflows }}
+           repository: ${{ github.event.inputs.repository }}
+        # secrets:
+         #  Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}           
