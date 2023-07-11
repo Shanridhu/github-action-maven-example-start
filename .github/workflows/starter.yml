@@ -10,7 +10,7 @@ on:
      repository: 
         description: 'Repository to run workflows in'
         required: true             
-        default: ${{github.Shanridhu/github-actions-shared-workflow/.github/workflows}}
+        default: ${{Shanridhu/github-actions-shared-workflow/.github/workflows}}
    
 jobs:
 
