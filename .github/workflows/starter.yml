@@ -14,7 +14,7 @@ jobs:
     trigger_javaci: 
        uses: Shanridhu/github-actions-shared-workflow/.github/workflows/javaci.yml@main
        with:
-        filename: ${{inputs.javaci}}
+        filename: "javaci"
        
        secrets:
          Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}
@@ -22,7 +22,7 @@ jobs:
     trigger_databaseci: 
        uses: Shanridhu/github-actions-shared-workflow/.github/workflows/databaseci.yml@main
        with:
-        filename: ${{inputs.databaseci}}
+        filename: "databaseci"
 
        secrets:
          Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}
