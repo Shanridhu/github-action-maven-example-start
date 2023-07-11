@@ -3,8 +3,9 @@ name: caller workflow
 on:
  workflow_dispatch:
    inputs: 
-     filename: ['javaci.yml','databaseci.yml']
+     filename: 
         description: 'please give any one file name to trigger'
+        
         required: true
 
      # filename2: 
