@@ -10,7 +10,7 @@ on:
      repository: 
         description: 'Repository to run workflows in'
         required: true             
-        default: ${{github.repository}} #${{Shanridhu/github-actions-shared-workflow/.github/workflows/}}   #
+        default: ${{github.repository}} #${{Shanridhu/github-actions-shared-workflow/.github/workflows/}}   
    
 jobs:
 
@@ -18,11 +18,11 @@ jobs:
      runs-on: ubuntu-latest
      steps:
        - name: Checkout Repository
-         uses: actions/checkout@v2
+         uses: actions/checkout@v3
          
        - name: Trigger Child Workflows
          id: workflow_dispatch
-         uses: peter-evans/workflow-dispatch@v1
+         uses: Shanridhu/github-actions-shared-workflow@v3
          with:
            workflows: ${{ github.event.inputs.workflows }}
            repository: ${{ github.event.inputs.repository }}
