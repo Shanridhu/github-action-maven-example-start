@@ -1,4 +1,4 @@
-name: caller workflow
+name: Call a reusable workflow
 
 on:
  workflow_dispatch:
@@ -6,27 +6,28 @@ on:
      workflows: 
         description: 'please give any one file name to trigger javaci or databaseci'
         required: true
-        default: 'javaci'
-     repository: 
-        description: 'Repository to run workflows in'
-        required: true             
-        #default: ${{github.repository}}
-        #default: Shanridhu/github-actions-shared-workflow/.github/workflows/   
-   
+        #default: 'javaci,databaseci'
+     #repository: 
+      #  description: 'Repository to run workflows in'
+       # required: true  
+  
 jobs:
 
-   build:
-     runs-on: ubuntu-latest
-     steps:
-       - name: Checkout Repository
-         uses: actions/checkout@v3
-         
-       - name: Trigger Child Workflows
-         id: workflow_dispatch
-         uses: Shanridhu/github-action-maven-example-start@main
-         
-         with:
-           workflows: ${{ github.workflow_dispatch.inputs.workflows }}
-           repository: ${{ github.workflow_dispatch.inputs.repository }}
-         env:
-           Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}           
+    trigger_javaci: 
+       if: github.workflows == 'javaci'
+       uses: Shanridhu/github-actions-shared-workflow/.github/workflows/javaci.yml@main
+       
+       secrets:
+         Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}
+
+    trigger_databaseci: 
+       if: github.workflows == 'databaseci'
+       uses: Shanridhu/github-actions-shared-workflow/.github/workflows/databaseci.yml@main
+
+
+       secrets:
+         Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}
+
+
+
+
