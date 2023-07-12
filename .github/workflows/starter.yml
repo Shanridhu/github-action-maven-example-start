@@ -6,25 +6,25 @@ on:
      workflows: 
         description: 'please give any one file name to trigger javaci or databaseci'
         required: true
-        default: 'javaci,databaseci'
+        default: 'javaci'
      repository: 
         description: 'Repository to run workflows in'
         required: true             
-        #default: ${{github.repository}} #${{Shanridhu/github-actions-shared-workflow/.github/workflows/}}   
+        default: Shanridhu/github-actions-shared-workflow/.github/workflows/   
    
 jobs:
 
    build:
      runs-on: ubuntu-latest
      steps:
-       #- name: Checkout Repository
-        # uses: actions/checkout@v3
+       - name: Checkout Repository
+         uses: actions/checkout@v3
          
        - name: Trigger Child Workflows
          id: workflow_dispatch
-         uses: Shanridhu/github-actions-shared-workflow@v1
+         uses: Shanridhu/github-actions-shared-workflow@main
          with:
            workflows: ${{ github.event.inputs.workflows }}
            repository: ${{ github.event.inputs.repository }}
-        # secrets:
-           #Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}           
+     #secrets:
+      #   Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}           
