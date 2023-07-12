@@ -6,11 +6,7 @@ on:
      workflows: 
         description: 'please give any one file name to trigger javaci or databaseci'
         required: true
-        #default: 'javaci,databaseci'
-     #repository: 
-      #  description: 'Repository to run workflows in'
-       # required: true  
-  
+ 
 jobs:
 
     trigger_javaci: 
