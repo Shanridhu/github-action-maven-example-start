@@ -18,11 +18,11 @@ jobs:
      runs-on: ubuntu-latest
      steps:
        - name: Checkout Repository
-         uses: actions/checkout@v2
+         uses: actions/checkout@v3
          
        - name: Trigger Child Workflows
          id: workflow_dispatch
-         uses: Shanridhu/github-actions-shared-workflow@v1
+         uses: Shanridhu/github-actions-shared-workflow@main
          with:
            workflows: ${{ github.event.inputs.workflows }}
            repository: ${{ github.event.inputs.repository }}
