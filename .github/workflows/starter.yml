@@ -16,14 +16,14 @@ jobs:
     trigger_javaci: 
        
        uses: Shanridhu/github-actions-shared-workflow/.github/workflows/javaci.yml@main
-       if: ${{github.event.input.workflows == 'javaci'}}
+       if: ${{github.workflow_dispatch.input.workflows == 'javaci'}}
        secrets:
          Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}
 
     trigger_databaseci: 
        
        uses: Shanridhu/github-actions-shared-workflow/.github/workflows/databaseci.yml@main
-       if: ${{github.event.input.workflows == 'databaseci'}}
+       if: ${{github.workflow_dispatch.input.workflows == 'databaseci'}}
        secrets:
          Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}
 
