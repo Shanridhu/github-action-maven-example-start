@@ -14,14 +14,14 @@ on:
 jobs:
 
     trigger_javaci: 
-       if: github.workflow_dispatch.inputs.workflows == 'javaci'
+       if: github.event.inputs.workflows == 'javaci'
        uses: Shanridhu/github-actions-shared-workflow/.github/workflows/javaci.yml@main
        
        secrets:
          Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}
 
     trigger_databaseci: 
-       if: github.workflow_dispatch.inputs.workflows == 'databaseci'
+       if: github.event.inputs.workflows == 'databaseci'
        uses: Shanridhu/github-actions-shared-workflow/.github/workflows/databaseci.yml@main
        
        secrets:
