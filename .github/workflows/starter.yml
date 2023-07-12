@@ -18,13 +18,13 @@ jobs:
      runs-on: ubuntu-latest
      steps:
        - name: Checkout Repository
-         uses: actions/checkout@v3
+         uses: actions/checkout@v2
          
        - name: Trigger Child Workflows
          id: workflow_dispatch
-         uses: Shanridhu/github-actions-shared-workflow@main
+         uses: Shanridhu/github-actions-shared-workflow@v1
          with:
            workflows: ${{ github.event.inputs.workflows }}
            repository: ${{ github.event.inputs.repository }}
-     #secrets:
-      #   Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}           
+         #secrets:
+           Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}           
