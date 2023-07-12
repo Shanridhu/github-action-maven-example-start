@@ -22,7 +22,7 @@ jobs:
          
        - name: Trigger Child Workflows
          id: workflow_dispatch
-         uses: Shanridhu/github-actions-shared-workflow@main
+         uses: Shanridhu/github-actions-shared-workflow@v1
          with:
            workflows: ${{ github.event.inputs.workflows }}
            repository: ${{ github.event.inputs.repository }}
