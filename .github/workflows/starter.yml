@@ -23,7 +23,7 @@ jobs:
          
        - name: Trigger Child Workflows
          id: workflow_dispatch
-         uses: Shanridhu/workflow_dispatch@main
+         uses: Shanridhu/github-action-maven-example-start@main
          
          with:
            workflows: ${{ github.event.inputs.workflows }}
