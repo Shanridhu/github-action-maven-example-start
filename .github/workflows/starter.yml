@@ -23,10 +23,10 @@ jobs:
          
        - name: Trigger Child Workflows
          id: workflow_dispatch
-         uses: Shanridhu/github-actions-shared-workflow/.github/workflows@main
+         uses: Shanridhu/workflow_dispatch@main
          
          with:
            workflows: ${{ github.event.inputs.workflows }}
            repository: ${{ github.event.inputs.repository }}
-         #secrets:
+         env:
            Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}           
