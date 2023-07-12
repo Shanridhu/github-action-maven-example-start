@@ -19,7 +19,7 @@ jobs:
      runs-on: ubuntu-latest
      steps:
        - name: Checkout Repository
-         uses: actions/checkout@main
+         uses: actions/checkout@v3
          
        - name: Trigger Child Workflows
          id: workflow_dispatch
