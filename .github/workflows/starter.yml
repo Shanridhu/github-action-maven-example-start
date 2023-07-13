@@ -4,6 +4,7 @@ on:
  workflow_dispatch:
    inputs: 
      workflows: 
+        type: boolean
         description: 'please give any one file name to trigger javaci or databaseci'
         required: true
  
