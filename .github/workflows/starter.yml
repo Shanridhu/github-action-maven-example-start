@@ -3,22 +3,26 @@ name: Call a reusable workflow
 on:
  workflow_dispatch:
    inputs: 
-     workflows: 
+     javaci: 
         type: boolean
-        description: 'please give any one file name to trigger javaci or databaseci'
+        description: 'deploy javaci'
         required: true
+     databaseci: 
+        type: boolean
+        description: 'deploy databaseci'
+        required: true        
  
 jobs:
 
-    trigger_javaci: 
-       if: ${{github.event.inputs.workflows == 'javaci'}}
+    deploy_javaci: 
+       if: ${{github.event.inputs.javaci == 'true'}}
        uses: Shanridhu/github-actions-shared-workflow/.github/workflows/javaci.yml@main
        
        secrets:
          Workflow2_PAT_TOKEN_GITHUB: ${{ secrets.Workflow2_PAT_TOKEN_GITHUB }}
 
-    trigger_databaseci: 
-       if: ${{github.event.inputs.workflows == 'databaseci'}}
+    deploy_databaseci: 
+       if: ${{github.event.inputs.databaseci == 'true'}}
        uses: Shanridhu/github-actions-shared-workflow/.github/workflows/databaseci.yml@main
        
        secrets:
