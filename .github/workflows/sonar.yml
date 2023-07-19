@@ -40,13 +40,20 @@ jobs:
 
     - name: Build project with Maven
       run: mvn -B package --file pom.xml
-      
-    - name: SonarQube Scan
-      uses: kitabisa/sonarqube-action@v1.2.0
+           
+    - name: Cache SonarQube packages
+      uses: actions/cache@v3
       with:
-        host: ${{ secrets.SONARQUBE_HOST }}
-        login: ${{ secrets.SONARQUBE_TOKEN }}
-        projectKey: test-maven-project
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+      
+    #- name: SonarQube Scan
+     # uses: kitabisa/sonarqube-action@v1.2.0
+      #with:
+       # host: ${{ secrets.SONARQUBE_HOST }}
+        #login: ${{ secrets.SONARQUBE_TOKEN }}
+        #projectKey: test-maven-project
         
     - name: SonarQube Scan
       run: |
