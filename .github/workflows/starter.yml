@@ -15,7 +15,7 @@ on:
 jobs:
 
     deploy_javaci: 
-       if: ${{github.event.inputs.javaci == 'true'}}
+       #if: ${{github.event.inputs.javaci == 'true'}}
        uses: Shanridhu/github-actions-shared-workflow/.github/workflows/javaci.yml@main
        
        secrets:
