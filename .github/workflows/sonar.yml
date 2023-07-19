@@ -2,11 +2,11 @@ name: javaci
 # continuous integration 
 
 on:
- push:
-  branches:
-   - main
+ #push:
+  #branches:
+   #- main
  #workflow_call:
- #workflow_dispatch: 
+ workflow_dispatch: 
   #secrets:
    #   Workflow2_PAT_TOKEN_GITHUB:
     #    required: true
