@@ -2,8 +2,11 @@ name: javaci
 # continuous integration 
 
 on:
+ push:
+  branches:
+   - main
  #workflow_call:
- workflow_dispatch: 
+ #workflow_dispatch: 
   #secrets:
    #   Workflow2_PAT_TOKEN_GITHUB:
     #    required: true
@@ -28,15 +31,15 @@ jobs:
         java-version: ${{ env.JAVA_VERSION }}
         distribution: 'temurin'
         
-    #- name: Cache the Maven packages to speed up build
-     # uses: actions/cache@v3
-      #with:
-       # path: ~/.m2
-        #key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+    - name: Cache the Maven packages to speed up build
+      uses: actions/cache@v3
+      with:
+        path: ~/.m2
+        key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
                 
 
-    #- name: Build project with Maven
-     # run: mvn -B package --file pom.xml
+    - name: Build project with Maven
+      run: mvn -B package --file pom.xml
       
     - name: SonarQube Scan
       uses: kitabisa/sonarqube-action@v1.2.0
@@ -44,4 +47,15 @@ jobs:
         host: ${{ secrets.SONARQUBE_HOST }}
         login: ${{ secrets.SONARQUBE_TOKEN }}
         projectKey: test-maven-project
+        
+    - name: SonarQube Scan
+      run: |
+       export SONARQUBE_HOST=${{ secrets.SONARQUBE_HOST }}
+       export SONARQUBE_TOKEN=${{ secrets.SONARQUBE_TOKEN }}    
+          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=test-maven-project
+          #mvn install sonar:sonar \
+           # -Dsonar.projectKey=test-maven-project \
+            #-Dsonar.organization=my_organization \
+            #-Dsonar.host.url=$SONARQUBE_HOST \
+            #-Dsonar.login=$SONARQUBE_TOKEN
        
